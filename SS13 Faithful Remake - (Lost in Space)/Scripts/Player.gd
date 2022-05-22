@@ -10,7 +10,7 @@ var inputs = {
 	'ui_right': Vector2.RIGHT
 }
 
-func _process(delta):
+func _process(_delta):
 	var left = Input.is_action_just_pressed("ui_right")
 	var right = Input.is_action_just_pressed("ui_left")
 	var up = Input.is_action_just_pressed("ui_up")

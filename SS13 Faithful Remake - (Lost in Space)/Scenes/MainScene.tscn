@@ -1,10 +1,11 @@
-[gd_scene load_steps=102 format=2]
+[gd_scene load_steps=103 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Closet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Walls/wall.png" type="Texture" id=3]
 [ext_resource path="res://Floors/Floor.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Lighting.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/ResearchDoor.tscn" type="PackedScene" id=6]
 
 [sub_resource type="TileSet" id=108]
 0/name = "Floor.png 0"
@@ -613,6 +614,7 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 1/z_index = 0
 
 [node name="Node2D" type="Node2D"]
+position = Vector2( 96, 32 )
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -638,27 +640,33 @@ position = Vector2( 256, 32 )
 visible = false
 
 [node name="Lighting2" parent="Turfs/Lights" instance=ExtResource( 5 )]
-position = Vector2( 224, 32 )
+position = Vector2( 192, 64 )
 
 [node name="Lighting6" parent="Turfs/Lights" instance=ExtResource( 5 )]
-position = Vector2( 64, 32 )
+position = Vector2( 64, 64 )
 
 [node name="Lighting3" parent="Turfs/Lights" instance=ExtResource( 5 )]
-position = Vector2( 352, 32 )
+position = Vector2( 352, 64 )
 
 [node name="Lighting5" parent="Turfs/Lights" instance=ExtResource( 5 )]
-position = Vector2( -64, 32 )
+position = Vector2( 448, 64 )
 
 [node name="Lighting4" parent="Turfs/Lights" instance=ExtResource( 5 )]
-position = Vector2( 160, -32 )
+position = Vector2( 256, 0 )
 frame = 0
+
+[node name="ResearchDoors" type="Node" parent="Turfs"]
+
+[node name="ResearchDoor" parent="Turfs/ResearchDoors" instance=ExtResource( 6 )]
+position = Vector2( 288, 32 )
 
 [node name="Mobs" type="Node2D" parent="."]
 
 [node name="Player" parent="Mobs" instance=ExtResource( 1 )]
-position = Vector2( 96, 64 )
+position = Vector2( 128, 64 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="Layer1" type="TileMap" parent="."]
