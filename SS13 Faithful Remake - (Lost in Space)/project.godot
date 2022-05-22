@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="SS13 Faithful Remake - (Lost in Space)"
-run/main_scene="res://ASdsdf.tscn"
+run/main_scene="res://Scenes/MainScene.tscn"
 config/icon="res://icon.png"
 
 [display]
