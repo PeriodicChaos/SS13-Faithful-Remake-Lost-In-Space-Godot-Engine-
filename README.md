@@ -3,3 +3,6 @@ Trying to remake ss13 as a whole mostly TG style but I'm keeping it open for eve
 
 
 Atmos will be added after i make all the basic stuff
+What we have right now 
+Tile Movement, Basic lighting/Shadows, AutoTiles and Pushing
+Your free to add to the project to help me with getting this template ready
