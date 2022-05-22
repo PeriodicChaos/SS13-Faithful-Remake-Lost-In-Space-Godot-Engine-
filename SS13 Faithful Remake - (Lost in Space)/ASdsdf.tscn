@@ -1,204 +1,89 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Wall.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Floor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Walls/Wall.png" type="Texture" id=2]
+[ext_resource path="res://Floors/Floor.png" type="Texture" id=3]
 [ext_resource path="res://Closet.tscn" type="PackedScene" id=4]
+
+[sub_resource type="OccluderPolygon2D" id=6]
+polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+
+[sub_resource type="TileSet" id=3]
+0/name = "Floor.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 32, 32 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "Wall.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 32, 32 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/occluder = SubResource( 6 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 5 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+
+[sub_resource type="TileSet" id=9]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Floors" type="Node2D" parent="."]
-
-[node name="Floor" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 224, 96 )
-offset = Vector2( -96, -32 )
-
-[node name="Floor2" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -128, 0 )
-offset = Vector2( 288, 64 )
-
-[node name="Floor3" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -96, 32 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor7" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -192, 32 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor8" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -192, 0 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor9" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -224, 0 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor10" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -224, 32 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor11" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -256, 32 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor12" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -256, 0 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor21" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -256, -32 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor22" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -224, -32 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor23" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -192, -32 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor24" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -160, -32 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor25" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -128, -32 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor26" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -96, -32 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor27" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -64, -32 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor28" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -32, -32 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor29" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 0, -32 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor30" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 32, -32 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor13" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -64, 0 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor14" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -32, 0 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor15" parent="Floors" instance=ExtResource( 3 )]
-offset = Vector2( 256, 64 )
-
-[node name="Floor16" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 32, 0 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor17" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 32, 32 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor18" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 0, 32 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor19" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -32, 32 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor20" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( -64, 32 )
-offset = Vector2( 256, 64 )
-
-[node name="Floor4" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 224, 128 )
-offset = Vector2( -96, -32 )
-
-[node name="Floor5" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 192, 128 )
-offset = Vector2( -96, -32 )
-
-[node name="Floor6" parent="Floors" instance=ExtResource( 3 )]
-position = Vector2( 192, 96 )
-offset = Vector2( -96, -32 )
-
-[node name="Walls" type="Node2D" parent="."]
-
-[node name="Wall" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 96, 128 )
-
-[node name="Wall2" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 160, 0 )
-
-[node name="Wall9" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 192, 0 )
-
-[node name="Wall10" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 224, 0 )
-
-[node name="Wall11" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 256, 0 )
-
-[node name="Wall12" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 288, 0 )
-
-[node name="Wall13" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 32, 0 )
-
-[node name="Wall14" parent="Walls" instance=ExtResource( 2 )]
-
-[node name="Wall3" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 128, 0 )
-
-[node name="Wall4" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 96, 0 )
-
-[node name="Wall7" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 64, 0 )
-
-[node name="Wall8" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 64, 128 )
-
-[node name="Wall15" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 32, 128 )
-
-[node name="Wall16" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 0, 128 )
-
-[node name="Wall5" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 128, 128 )
-
-[node name="Wall6" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 160, 128 )
-
-[node name="Wall17" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 192, 128 )
-
-[node name="Wall18" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 224, 128 )
-
-[node name="Wall19" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 256, 128 )
-
-[node name="Wall20" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 288, 128 )
+[node name="Lights" type="Node" parent="."]
 
 [node name="Closets" type="Node2D" parent="."]
 
 [node name="Closet" parent="Closets" instance=ExtResource( 4 )]
 position = Vector2( 32, 32 )
 
-[node name="Closet2" parent="Closets" instance=ExtResource( 4 )]
-position = Vector2( 160, 64 )
-
-[node name="Closet3" parent="Closets" instance=ExtResource( 4 )]
-position = Vector2( 256, 32 )
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 64, 64 )
+position = Vector2( 128, 64 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0, 0, 0, 1 )
+
+[node name="Layer1" type="TileMap" parent="."]
+z_index = -99
+tile_set = SubResource( 3 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 32
+format = 1
+tile_data = PoolIntArray( -196605, 1, 0, -196604, 1, 0, -196603, 1, 0, -196602, 1, 0, -196601, 1, 0, -196600, 1, 0, -131069, 1, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 1, 0, -65533, 1, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 0, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0 )
+
+[node name="Layer2" type="TileMap" parent="."]
+z_index = -90
+tile_set = SubResource( 9 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 32
+format = 1
+tile_data = PoolIntArray( 5, 0, 0 )
+
+[node name="Layer3" type="TileMap" parent="."]
+z_index = -89
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 32
+format = 1
