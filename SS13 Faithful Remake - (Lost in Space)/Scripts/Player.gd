@@ -3,6 +3,7 @@ extends KinematicBody2D
 onready var animationPlayer = $AnimationPlayer
 onready var ray = $RayCast2D
 var grid_size = 32
+var Pull = 'ui_e'
 var inputs = {
 	'ui_up': Vector2.UP,
 	'ui_down': Vector2.DOWN,
@@ -38,6 +39,6 @@ func move(dir):
 		position += vector_pos
 	else:
 		var collider = ray.get_collider()
-		if collider.is_in_group('Closet'):
+		if collider.is_in_group('Moveable'):
 			if collider.move(dir):
-				position += vector_pos
+				position += vector_pos 

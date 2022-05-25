@@ -5,7 +5,7 @@
 [ext_resource path="res://Lights/light.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 16 )
+extents = Vector2( 8.5, 16 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "MovementLeft"
@@ -96,7 +96,7 @@ hframes = 2
 vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 16, 16 )
+position = Vector2( 14.5, 16 )
 shape = SubResource( 1 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
