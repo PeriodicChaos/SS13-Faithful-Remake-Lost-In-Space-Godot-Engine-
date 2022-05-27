@@ -13,7 +13,7 @@ func _ready():
 	
 func _process(delta):
 
-	if !ray.is_colliding():
+	if Input.is_action_just_pressed("ui_e"):
 		var bodies = get_overlapping_bodies()
 		for body in bodies:
 			if (body.get_name() == PLAYERNAME):

@@ -666,7 +666,6 @@ frame = 0
 position = Vector2( 128, 64 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="Layer1" type="TileMap" parent="."]
