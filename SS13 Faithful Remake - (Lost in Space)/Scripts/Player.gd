@@ -16,7 +16,7 @@ func _process(_delta):
 	var right = Input.is_action_just_pressed("ui_left")
 	var up = Input.is_action_just_pressed("ui_up")
 	var down = Input.is_action_just_pressed("ui_down")
-	
+
 	if right:
 		animationPlayer.play("MovementRight")
 	elif left:
@@ -42,3 +42,6 @@ func move(dir):
 		if collider.is_in_group('Moveable'):
 			if collider.move(dir):
 				position += vector_pos 
+
+func MouseMovement(dir):
+	InputEventMouseButton.position()

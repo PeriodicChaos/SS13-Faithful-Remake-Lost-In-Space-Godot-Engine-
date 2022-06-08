@@ -1,30 +1,30 @@
 extends Area2D
 
-onready var ray = $RayCast2D
-
-const PLAYERNAME = "Player"
-onready var animationPlayer = $AnimationPlayer
-onready var  door = get_node("..")
+onready var door = get_node("..")
+var InArea = false
 
 func _ready():
 	connect("body_entered", self, "_on_body_enter")
-	connect("process", self, "_process")
-	
-	
-func _process(delta):
-
-	if Input.is_action_just_pressed("ui_e"):
-		var bodies = get_overlapping_bodies()
-		for body in bodies:
-			if (body.get_name() == PLAYERNAME):
-				if (animationPlayer.get_current_animation() == "Open"):
-					animationPlayer.play("Close")
-					var collisionShape = door.get_node("StaticBody2D/CollisionShape2D")
-					collisionShape.disabled  = false
-				else:
-					animationPlayer.play("Open")
-					var collisionShape = door.get_node("StaticBody2D/CollisionShape2D")
-					collisionShape.disabled  = true
+	connect("body_exited", self, "_on_body_exited")
 
 func _on_body_enter(body):
-	print(body.get_name() + " entered the area")
+	if body.is_in_group("player"):
+		InArea = true
+		print("worked in")
+	if InArea == true:
+		yield(get_tree().create_timer(0.5), "timeout")
+		$AnimationPlayer.play("Open")
+		var collisionShape = door.get_node("StaticBody2D/CollisionShape2D")
+		yield(get_tree().create_timer(0.1), "timeout")
+		collisionShape.disabled = true
+
+func _on_body_exited(body):
+	if body.is_in_group("player"):
+		InArea = false
+		print("worked out")
+	if InArea == false:
+		yield(get_tree().create_timer(0.5), "timeout")
+		$AnimationPlayer.play("Close")
+		var collisionShape = door.get_node("StaticBody2D/CollisionShape2D")
+		yield(get_tree().create_timer(0.1), "timeout")
+		collisionShape.disabled = false
