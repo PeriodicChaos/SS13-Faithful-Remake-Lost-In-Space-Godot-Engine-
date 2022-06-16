@@ -659,10 +659,11 @@ frame = 0
 
 [node name="ResearchDoor" parent="Turfs/ResearchDoors" instance=ExtResource( 6 )]
 position = Vector2( 288, 32 )
+frame = 0
 
 [node name="Mobs" type="Node2D" parent="."]
 
-[node name="Player" parent="Mobs" instance=ExtResource( 1 )]
+[node name="Player" parent="Mobs" groups=["player"] instance=ExtResource( 1 )]
 position = Vector2( 128, 64 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

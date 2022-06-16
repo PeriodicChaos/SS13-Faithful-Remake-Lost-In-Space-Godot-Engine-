@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
 
-[node name="Closet" type="KinematicBody2D" groups=["Closet"]]
+[node name="Closet" type="KinematicBody2D" groups=["Moveable"]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

@@ -1,8 +1,12 @@
 extends KinematicBody2D
 
 onready var animationPlayer = $AnimationPlayer
-onready var ray : RayCast2D = $RayCast2D
-var grid_size   : int = 32
+
+onready var ray = $RayCast2D
+var grid_size = 32
+var Pull = 'ui_e'
+
+
 var inputs = {
 	'ui_up': Vector2.UP,
 	'ui_down': Vector2.DOWN,
@@ -19,7 +23,7 @@ func _process(_delta):
 	var right = Input.is_action_just_pressed("ui_left")
 	var up = Input.is_action_just_pressed("ui_up")
 	var down = Input.is_action_just_pressed("ui_down")
-	
+
 	if right:
 		animationPlayer.play("MovementRight")
 	elif left:
@@ -51,6 +55,9 @@ func movement_input(dir):
 	else:
 		var collider = ray.get_collider()
 		if(collider == null): return
-		if collider.is_in_group('Closet'):
+		if collider.is_in_group('Moveable'):
 			if collider.move(dir):
-				position += vector_pos
+				position += vector_pos 
+
+func MouseMovement(dir):
+	InputEventMouseButton.position()
