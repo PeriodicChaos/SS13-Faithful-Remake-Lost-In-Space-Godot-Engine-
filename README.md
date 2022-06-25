@@ -7,7 +7,7 @@ What we have right now
 Tile Movement, Basic lighting/Shadows, AutoTiles and Pushing
 Your free to add to the project to help me with getting this template ready
 
-# How Do I Run It
+# How Do I Run It/ Edit it
 
 1. Well frist you need Godot you can install it here https://godotengine.org/ or at steam here https://store.steampowered.com/app/404790/Godot_Engine
 
