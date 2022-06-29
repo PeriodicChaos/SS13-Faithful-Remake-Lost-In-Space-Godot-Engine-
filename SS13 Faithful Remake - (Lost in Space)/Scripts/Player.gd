@@ -1,11 +1,13 @@
 extends KinematicBody2D
 
 onready var animationPlayer = $AnimationPlayer
+onready var tween = $Tween
 
 onready var ray = $RayCast2D
 var grid_size = 32
 var Pull = 'ui_e'
 
+puppet var puppet_position = Vector2(0, 0) setget puppet_position_set
 
 var inputs = {
 	'ui_up': Vector2.UP,
@@ -18,20 +20,27 @@ var movement_queue : Vector2
 var movement_speed : float = 0.65
 var is_moving      : bool = false
 
-func _process(_delta):
-	var left = Input.is_action_just_pressed("ui_right")
-	var right = Input.is_action_just_pressed("ui_left")
-	var up = Input.is_action_just_pressed("ui_up")
-	var down = Input.is_action_just_pressed("ui_down")
+func _process(delta: float) -> void:
+	if is_network_master():
+		var left = Input.is_action_just_pressed("ui_right")
+		var right = Input.is_action_just_pressed("ui_left")
+		var up = Input.is_action_just_pressed("ui_up")
+		var down = Input.is_action_just_pressed("ui_down")
 
-	if right:
-		animationPlayer.play("MovementRight")
-	elif left:
-		animationPlayer.play("MovementLeft")
-	elif up:
-		animationPlayer.play("MovementUp")
-	elif down:
-		animationPlayer.play("MovmentDown")
+		if right:
+			animationPlayer.play("MovementRight")
+		elif left:
+			animationPlayer.play("MovementLeft")
+		elif up:
+			animationPlayer.play("MovementUp")
+		elif down:
+			animationPlayer.play("MovmentDown")
+
+func puppet_position_set(new_value) -> void:
+	puppet_position = new_value
+	
+	tween.interpolate_property(self, "global_position", global_position, puppet_position, 0.1)
+	tween.start()
 
 func _unhandled_input(event):
 	for dir in inputs.keys():
@@ -61,3 +70,8 @@ func movement_input(dir):
 
 func MouseMovement(dir):
 	InputEventMouseButton.position()
+
+
+func _on_Network_tick_rate_timeout():
+	if is_network_master():
+		rset_unreliable("puppet_position", global_position)

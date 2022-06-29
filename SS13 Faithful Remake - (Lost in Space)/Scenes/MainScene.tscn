@@ -662,6 +662,7 @@ position = Vector2( 288, 32 )
 frame = 0
 
 [node name="Mobs" type="Node2D" parent="."]
+position = Vector2( 1, 0 )
 
 [node name="Player" parent="Mobs" groups=["player"] instance=ExtResource( 1 )]
 position = Vector2( 128, 64 )

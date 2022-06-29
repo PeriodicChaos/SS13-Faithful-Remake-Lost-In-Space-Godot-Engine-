@@ -14,6 +14,12 @@ config/name="SS13 Faithful Remake - (Lost in Space)"
 run/main_scene="res://Scenes/MainScene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Network="*res://Scripts/Network.gd"
+Global="*res://Scripts/Global.gd"
+Players="*res://Scenes/Players.tscn"
+
 [display]
 
 window/size/width=1280

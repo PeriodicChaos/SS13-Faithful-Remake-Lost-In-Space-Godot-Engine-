@@ -125,3 +125,11 @@ anims/MovementRight = SubResource( 3 )
 anims/MovementUp = SubResource( 4 )
 anims/MovmentDown = SubResource( 5 )
 anims/RESET = SubResource( 6 )
+
+[node name="Network_tick_rate" type="Timer" parent="."]
+wait_time = 0.03
+autostart = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="timeout" from="Network_tick_rate" to="." method="_on_Network_tick_rate_timeout"]
